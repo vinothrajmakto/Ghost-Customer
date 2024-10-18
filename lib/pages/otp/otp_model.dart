@@ -10,15 +10,15 @@ class OtpModel extends FlutterFlowModel<OtpWidget> {
   // State field(s) for PinCode widget.
   TextEditingController? pinCodeController;
   String? Function(BuildContext, String?)? pinCodeControllerValidator;
-  // State field(s) for Timer05 widget.
-  final timer05InitialTimeMs = 30000;
-  int timer05Milliseconds = 30000;
-  String timer05Value = StopWatchTimer.getDisplayTime(
+  // State field(s) for Timer widget.
+  final timerInitialTimeMs = 30000;
+  int timerMilliseconds = 30000;
+  String timerValue = StopWatchTimer.getDisplayTime(
     30000,
     hours: false,
     milliSecond: false,
   );
-  FlutterFlowTimerController timer05Controller =
+  FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
   @override
@@ -29,6 +29,6 @@ class OtpModel extends FlutterFlowModel<OtpWidget> {
   @override
   void dispose() {
     pinCodeController?.dispose();
-    timer05Controller.dispose();
+    timerController.dispose();
   }
 }
